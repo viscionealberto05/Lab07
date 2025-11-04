@@ -21,7 +21,7 @@ class MuseoDAO:
         else:
             cursor = cnx.cursor(dictionary=True)
             query = """SELECT * 
-                            FROM museo"""
+                       FROM museo"""
             cursor.execute(query)
             for row in cursor:
                 museo = Museo(row["id"],row["nome"],row["tipologia"])
@@ -29,3 +29,4 @@ class MuseoDAO:
             cursor.close()
             cnx.close()
             return results
+
