@@ -1,4 +1,6 @@
 import flet as ft
+from flet.core.dropdown import Dropdown
+
 from UI.alert import AlertManager
 
 '''
@@ -36,10 +38,13 @@ class View:
         self.txt_titolo = ft.Text(value="Musei di Torino", size=38, weight=ft.FontWeight.BOLD)
 
         # --- Sezione 2: Filtraggio ---
-        # TODO
+        self._dd_nomi = Dropdown(label = "Nome Museo",
+                                 options = [], width=200)
+
+        self._dd_epoca = Dropdown(label = "Epoca", options = [], width=200)
 
         # Sezione 3: Artefatti
-        # TODO
+        self.bottone_artefatti = ft.ElevatedButton(text = "Mostra Artefatti", width=200, on_click=...)
 
         # --- Toggle Tema ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
@@ -53,10 +58,11 @@ class View:
             ft.Divider(),
 
             # Sezione 2: Filtraggio
-            # TODO
+            ft.Row(controls=[self._dd_nomi, self._dd_epoca],alignment=ft.MainAxisAlignment.CENTER),
+            ft.Divider(),
 
             # Sezione 3: Artefatti
-            # TODO
+            self.bottone_artefatti,
         )
 
         self.page.scroll = "adaptive"

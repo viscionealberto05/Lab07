@@ -25,5 +25,5 @@ class Model:
     # --- MUSEI ---
     def get_musei(self):
         """ Restituisce la lista di tutti i musei."""
-        # TODO
+        lista_musei = MuseoDAO.leggi_musei()
 
