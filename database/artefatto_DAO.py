@@ -7,6 +7,9 @@ from model.artefattoDTO import Artefatto
 """
 
 class ArtefattoDAO:
+
+    #Alcune query potrebbero essere riformulate magari con l'utilizzo di un NULL
+
     def __init__(self):
         pass
 
@@ -31,6 +34,10 @@ class ArtefattoDAO:
             return results
 
     @staticmethod
+
+    #Parametrizzo le query che potrebbero essere causa di injection
+    #per tutelare il DB.
+
     def trova_artefatti(museo:str, epoca:str):
         results = []
         cnx = ConnessioneDB.get_connection()

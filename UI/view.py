@@ -34,10 +34,18 @@ class View:
 
     def load_interface(self):
         """ Crea e aggiunge gli elementi di UI alla pagina e la aggiorna. """
+
+        #Creo entrambe le dropdown, bottone per la ricerca e la listview
+
         # --- Sezione 1: Intestazione ---
         self.txt_titolo = ft.Text(value="Musei di Torino", size=38, weight=ft.FontWeight.BOLD)
 
         # --- Sezione 2: Filtraggio ---
+
+        #Le dropdown, seguendo la documentazione di flet, chiamano una funzione per popolarsi
+        #dopo "option=" e per ciascun cambiamento che viene apportato memorizzo il valore selezionato nel
+        #controller
+
         self._dd_nomi = Dropdown(label = "Nome Museo",
                                  options = self.controller.popola_dropdown(),
                                  on_change=self.controller.aggiorna_nome_museo,
